@@ -8,7 +8,7 @@
     on_press: self.background_color = 1, 1, 1, 0.3
     on_release: self.background_color = 1, 1, 1, 1
 
-<CustomWidget>:
+<ScreenOne>:
     canvas.before:
         #Color:
             #rgba: 1, 1, 1, 1
@@ -18,9 +18,85 @@
             source: 'back.png'
 
     CustButton:
+        size: 200, 50
+        size_hint: None, None
         text: "Login"
         color: '#707070'
-        pos: 114, 440
+        pos: 114, 480
+        on_press:
+            root.manager.current = "screen_two"
+
+    CustButton:
+        size: 200, 50
+        size_hint: None, None
+        text: "Register"
+        color: '#707070'
+        pos: 114, 400
+
+
+
+<ScreenTwo>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'back.png'
+
+    TextInput:
+        id: Email
+        hint_text: "Email"
+        pos: 114, 480
+        size_hint: None, None
+        multiline: False
+        size: 200, 40
+        background_normal: 'input.png'
+        background_active: 'input.png'
+        cursor_color: 0, 0, 0, 1
+
+    TextInput:
+        id: password
+        hint_text: "Password"
+        pos: 114, 400
+        size_hint: None, None
+        multiline: False
+        size: 200, 40
+        background_normal: 'input.png'
+        background_active: 'input.png'
+        cursor_color: 0, 0, 0, 1
+        password: True 
+
+    Label:
+        id: wrong
+        text: ""
+        color: '#FF0000'
+
+    CustButton:
+        text: "Login"
+        pos: 139, 300
+        size_hint: None, None
+        size: 150, 50
+        color: '#707070'
+        on_press: print(root.manager.get_screen('screen_two').ids.Email.text, "\n", root.manager.get_screen('screen_two').ids.password.text)
+        on_press: if root.manager.get_screen('screen_two').ids.Email.text == "test@gmail.com" and root.manager.get_screen('screen_two').ids.password.text == "password": root.manager.current = "screen_three"
+
+
+<ScreenThree>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'back.png'
+
+            
+    
+            
+                
+    
+
+
+
+
+
 
   
         
