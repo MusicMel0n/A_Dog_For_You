@@ -1,3 +1,4 @@
+#:kivy 2.0.0
 <CustButton@Button>
     font_size: 32
     color: 1, 1, 1, 1
@@ -32,6 +33,8 @@
         text: "Register"
         color: '#707070'
         pos: 114, 400
+        on_press:
+            root.manager.current = "register_screen"
 
 
 
@@ -86,6 +89,48 @@
             pos: self.pos
             size: self.size
             source: 'back.png'
+
+<ScreenFour>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'back.png'
+
+    TextInput:
+        id: Email
+        hint_text: "Email"
+        pos: 114, 480
+        size_hint: None, None
+        multiline: False
+        size: 200, 40
+        background_normal: 'input.png'
+        background_active: 'input.png'
+        cursor_color: 0, 0, 0, 1
+
+    TextInput:
+        id: password
+        hint_text: "Password"
+        pos: 114, 420
+        size_hint: None, None
+        multiline: False
+        size: 200, 40
+        background_normal: 'input.png'
+        background_active: 'input.png'
+        cursor_color: 0, 0, 0, 1
+        password: True
+
+    TextInput:
+        id: re-enter-password
+        hint_text: "Re-Enter Password"
+        pos: 114, 360
+        size_hint: None, None
+        multiline: False
+        size: 200, 40
+        background_normal: 'input.png'
+        background_active: 'input.png'
+        cursor_color: 0, 0, 0, 1
+        password: True
 
             
     

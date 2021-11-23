@@ -22,11 +22,15 @@ class ScreenTwo(Screen):
 class ScreenThree(Screen):
     pass
 
+class ScreenFour(Screen):
+    pass
+
 screen_manager =  ScreenManager()
 
 screen_manager.add_widget(ScreenOne(name='screen_one'))
 screen_manager.add_widget(ScreenTwo(name='screen_two'))
 screen_manager.add_widget(ScreenThree(name='screen_three'))
+screen_manager.add_widget(ScreenFour(name='register_screen'))
 
 class adogforyouApp(App):
     def build(self):
