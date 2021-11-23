@@ -1,0 +1,27 @@
+<CustButton@Button>
+    font_size: 32
+    color: 1, 1, 1, 1
+    size: 200, 50
+    background_normal: 'button_down.png'
+    background_down: 'button_down.png'
+    #background_color: 1, 1, 1, 1
+    on_press: self.background_color = 1, 1, 1, 0.3
+    on_release: self.background_color = 1, 1, 1, 1
+
+<CustomWidget>:
+    canvas.before:
+        #Color:
+            #rgba: 1, 1, 1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'back.png'
+
+    CustButton:
+        text: "Login"
+        color: '#707070'
+        pos: 114, 440
+
+  
+        
+    
