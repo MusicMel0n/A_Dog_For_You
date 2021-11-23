@@ -3,8 +3,8 @@
     font_size: 32
     color: 1, 1, 1, 1
     size: 200, 50
-    background_normal: 'button_down.png'
-    background_down: 'button_down.png'
+    background_normal: 'res/button_down.png'
+    background_down: 'res/button_down.png'
     background_color: 1, 1, 1, 1
     on_press: self.background_color = 1, 1, 1, 0.3
     on_release: self.background_color = 1, 1, 1, 1
@@ -16,7 +16,7 @@
         Rectangle:
             pos: self.pos
             size: self.size
-            source: 'back.png'
+            source: 'res/back.png'
 
     CustButton:
         size: 200, 50
@@ -26,7 +26,7 @@
         pos: 114, 480
         on_release:
             root.manager.transition.direction = "left"
-            root.manager.current = "screen_two"
+            root.manager.current = "login_screen"
 
     CustButton:
         size: 200, 50
@@ -45,7 +45,7 @@
         Rectangle:
             pos: self.pos
             size: self.size
-            source: 'back.png'
+            source: 'res/back.png'
 
     TextInput:
         id: Email
@@ -54,19 +54,19 @@
         size_hint: None, None
         multiline: False
         size: 200, 40
-        background_normal: 'input.png'
-        background_active: 'input.png'
+        background_normal: 'res/input.png'
+        background_active: 'res/input.png'
         cursor_color: 0, 0, 0, 1
 
     TextInput:
         id: password
         hint_text: "Password"
-        pos: 114, 400
+        pos: 114, 420
         size_hint: None, None
         multiline: False
         size: 200, 40
-        background_normal: 'input.png'
-        background_active: 'input.png'
+        background_normal: 'res/input.png'
+        background_active: 'res/input.png'
         cursor_color: 0, 0, 0, 1
         password: True 
 
@@ -81,9 +81,9 @@
         size_hint: None, None
         size: 150, 50
         color: '#707070'
-        on_release: print(root.manager.get_screen('screen_two').ids.Email.text, "\n", root.manager.get_screen('screen_two').ids.password.text)
+        on_release: print(root.manager.get_screen('login_screen').ids.Email.text, "\n", root.manager.get_screen('login_screen').ids.password.text)
         on_release: 
-            if root.manager.get_screen('screen_two').ids.Email.text == "test@gmail.com" and root.manager.get_screen('screen_two').ids.password.text == "password": root.manager.current = "screen_three"
+            if root.manager.get_screen('login_screen').ids.Email.text == "test@gmail.com" and root.manager.get_screen('login_screen').ids.password.text == "password": root.manager.current = "main_screen"
             root.manager.transition.direction = "left"
 
     CustButton:
@@ -94,55 +94,86 @@
         size_hint: None, None
         on_release: 
             root.manager.transition.direction = "right"
-            root.manager.current = "screen_one"
+            root.manager.current = "home_screen"
 
 
 <ScreenThree>:
     canvas.before:
+        Color:
+            rgba: (1, 1, 1, 1)
         Rectangle:
             pos: self.pos
             size: self.size
-            source: 'back.png'
+
+        Rectangle:
+            pos: 100, 100
+            size: 400, 400
+            source: 
+
 
 <ScreenFour>:
     canvas.before:
         Rectangle:
             pos: self.pos
             size: self.size
-            source: 'back.png'
+            source: 'res/back.png'
 
     TextInput:
-        id: Email
+        id: email
         hint_text: "Email"
         pos: 114, 480
         size_hint: None, None
         multiline: False
         size: 200, 40
-        background_normal: 'input.png'
-        background_active: 'input.png'
+        background_normal: 'res/input.png'
+        background_active: 'res/input.png'
         cursor_color: 0, 0, 0, 1
 
     TextInput:
-        id: password
-        hint_text: "Password"
+        id: username
+        hint_text: "Username"
         pos: 114, 420
         size_hint: None, None
         multiline: False
         size: 200, 40
-        background_normal: 'input.png'
-        background_active: 'input.png'
+        background_normal: 'res/input.png'
+        background_active: 'res/input.png'
+        cursor_color: 0, 0, 0, 1
+        password: True
+
+    TextInput:
+        id: DOB
+        hint_text: "date-of-birth"
+        pos: 114, 360
+        size_hint: None, None
+        multiline: False
+        size: 200, 40
+        background_normal: 'res/input.png'
+        background_active: 'res/input.png'
+        cursor_color: 0, 0, 0, 1
+        password: True
+
+    TextInput:
+        id: password
+        hint_text: "Password"
+        pos: 114, 300
+        size_hint: None, None
+        multiline: False
+        size: 200, 40
+        background_normal: 'res/input.png'
+        background_active: 'res/input.png'
         cursor_color: 0, 0, 0, 1
         password: True
 
     TextInput:
         id: re-enter-password
         hint_text: "Re-Enter Password"
-        pos: 114, 360
+        pos: 114, 240
         size_hint: None, None
         multiline: False
         size: 200, 40
-        background_normal: 'input.png'
-        background_active: 'input.png'
+        background_normal: 'res/input.png'
+        background_active: 'res/input.png'
         cursor_color: 0, 0, 0, 1
         password: True
 
@@ -150,11 +181,11 @@
         text: "Back"
         color: '#707070'
         size: 150, 50
-        pos: 139, 200
+        pos: 139, 50
         size_hint: None, None
         on_release:
             root.manager.transition.direction = "right"
-            root.manager.current = "screen_one"
+            root.manager.current = "home_screen"
 
             
     

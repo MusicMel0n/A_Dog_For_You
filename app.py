@@ -27,9 +27,9 @@ class ScreenFour(Screen):
 
 screen_manager =  ScreenManager()
 
-screen_manager.add_widget(ScreenOne(name='screen_one'))
-screen_manager.add_widget(ScreenTwo(name='screen_two'))
-screen_manager.add_widget(ScreenThree(name='screen_three'))
+screen_manager.add_widget(ScreenOne(name='home_screen'))
+screen_manager.add_widget(ScreenTwo(name='login_screen'))
+screen_manager.add_widget(ScreenThree(name='main_screen'))
 screen_manager.add_widget(ScreenFour(name='register_screen'))
 
 class adogforyouApp(App):
