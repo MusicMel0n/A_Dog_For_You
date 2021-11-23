@@ -5,7 +5,7 @@
     size: 200, 50
     background_normal: 'button_down.png'
     background_down: 'button_down.png'
-    #background_color: 1, 1, 1, 1
+    background_color: 1, 1, 1, 1
     on_press: self.background_color = 1, 1, 1, 0.3
     on_release: self.background_color = 1, 1, 1, 1
 
@@ -24,7 +24,8 @@
         text: "Login"
         color: '#707070'
         pos: 114, 480
-        on_press:
+        on_release:
+            root.manager.transition.direction = "left"
             root.manager.current = "screen_two"
 
     CustButton:
@@ -33,7 +34,8 @@
         text: "Register"
         color: '#707070'
         pos: 114, 400
-        on_press:
+        on_release:
+            root.manager.transition.direction = "left"
             root.manager.current = "register_screen"
 
 
@@ -79,8 +81,20 @@
         size_hint: None, None
         size: 150, 50
         color: '#707070'
-        on_press: print(root.manager.get_screen('screen_two').ids.Email.text, "\n", root.manager.get_screen('screen_two').ids.password.text)
-        on_press: if root.manager.get_screen('screen_two').ids.Email.text == "test@gmail.com" and root.manager.get_screen('screen_two').ids.password.text == "password": root.manager.current = "screen_three"
+        on_release: print(root.manager.get_screen('screen_two').ids.Email.text, "\n", root.manager.get_screen('screen_two').ids.password.text)
+        on_release: 
+            if root.manager.get_screen('screen_two').ids.Email.text == "test@gmail.com" and root.manager.get_screen('screen_two').ids.password.text == "password": root.manager.current = "screen_three"
+            root.manager.transition.direction = "left"
+
+    CustButton:
+        text: "Back"
+        pos: 139, 220
+        size: 150,50
+        color: '#707070'
+        size_hint: None, None
+        on_release: 
+            root.manager.transition.direction = "right"
+            root.manager.current = "screen_one"
 
 
 <ScreenThree>:
@@ -131,6 +145,16 @@
         background_active: 'input.png'
         cursor_color: 0, 0, 0, 1
         password: True
+
+    CustButton:
+        text: "Back"
+        color: '#707070'
+        size: 150, 50
+        pos: 139, 200
+        size_hint: None, None
+        on_release:
+            root.manager.transition.direction = "right"
+            root.manager.current = "screen_one"
 
             
     
