@@ -121,7 +121,7 @@
         on_press: self.background_color = 1, 1, 1, 0.3
         on_release: 
             self.background_color = 1, 1, 1, 1
-            root.manager.current = "trail_screen"
+            root.manager.current = "quiz_screen"
             root.manager.transition.direction = "left"
     
     Button:
@@ -133,7 +133,7 @@
         on_press: self.background_color = 1, 1, 1, 0.3
         on_release: 
             self.background_color = 1, 1, 1, 1
-            root.manager.current = "quiz_screen"
+            root.manager.current = "trail_screen"
             root.manager.transition.direction = "left"
 
     
@@ -241,7 +241,7 @@
 
     Label:
         text: "223"
-        pos: 147, -226
+        pos: 143, -226
 
     Label:
         text: "Posted 15H Ago"
@@ -255,9 +255,9 @@
 
     Label:
         markup: True
-        text: " Max the golden Lab \n is looking for a home.\n He was the runt of his \n litter and unfortunately \n nobody wanted him.\n Message [color=#0000FF]@Mary_73[/color] if \n you are interested.\n "
+        text: " Max the golden Lab \n is looking for a home.\n He was the runt of his \n litter and unfortunately \n nobody wanted him.\n Message [color=#0000FF]@Sean_maher8[/color] \n if you are interested.\n "
         color: 1, 1, 1, 1
-        pos: -95, -85
+        pos: -90, -85
         font_size: self.width/20-3
 
 <ScreenFour>:
@@ -341,6 +341,7 @@
         Rectangle:
             pos: self.pos
             size: self.size
+
     Image:
         source: 'res/Rectangle 1.png'
         size: self.texture_size
@@ -362,7 +363,10 @@
         size_hint: None, None
         pos: 91, 833
         on_press: self.background_color = 1, 1, 1, 0.3
-        on_release: self.background_color = 1, 1, 1, 1
+        on_release:
+            self.background_color = 1, 1, 1, 1
+            root.manager.current = "trail_screen"
+            root.manager.transition.direction = "left"
     
     Button:
         background_normal: 'res/home.png'
@@ -383,7 +387,10 @@
         size_hint: None, None
         pos: 300, 833
         on_press: self.background_color = 1, 1, 1, 0.3
-        on_release: self.background_color = 1, 1, 1, 1
+        on_release:
+            self.background_color = 1, 1, 1, 1
+            root.manager.current = "direct_messages"
+            root.manager.transition.direction = "left"
     
 
     Image:
@@ -436,7 +443,7 @@
         on_press: self.background_color = 1, 1, 1, 0.3
         on_release: 
             self.background_color = 1, 1, 1, 1
-            root.manager.current = "trail_screen"
+            root.manager.current = "quiz_screen"
             root.manager.transition.direction = "left"
     
     Button:
@@ -448,7 +455,7 @@
         on_press: self.background_color = 1, 1, 1, 0.3
         on_release: 
             self.background_color = 1, 1, 1, 1
-            root.manager.current = "quiz_screen"
+            root.manager.current = "trail_screen"
             root.manager.transition.direction = "left"
 
     
@@ -459,7 +466,10 @@
         size_hint: None, None
         pos: 201, 833
         on_press: self.background_color = 1, 1, 1, 0.3
-        on_release: self.background_color = 1, 1, 1, 1
+        on_release:
+            self.background_color = 1, 1, 1, 1
+            root.manager.current = "main_screen"
+            root.manager.transition.direction = "left"
 
     Button:
         background_normal: 'res/chat.png'
@@ -477,6 +487,10 @@
         source: 'res/logo.png'
         size: self.texture_size
         pos: 0, -420
+
+    Label:
+        text: "Quiz Screen"
+        color: 0, 0, 0, 1
 
 <TrailScreen>:
     canvas.before:
@@ -500,7 +514,7 @@
         on_press: self.background_color = 1, 1, 1, 0.3
         on_release: 
             self.background_color = 1, 1, 1, 1
-            root.manager.current = "trail_screen"
+            root.manager.current = "quiz_screen"
             root.manager.transition.direction = "left"
     
     Button:
@@ -512,7 +526,7 @@
         on_press: self.background_color = 1, 1, 1, 0.3
         on_release: 
             self.background_color = 1, 1, 1, 1
-            root.manager.current = "quiz_screen"
+            root.manager.current = "trail_screen"
             root.manager.transition.direction = "left"
 
     
@@ -523,7 +537,10 @@
         size_hint: None, None
         pos: 201, 833
         on_press: self.background_color = 1, 1, 1, 0.3
-        on_release: self.background_color = 1, 1, 1, 1
+        on_release: 
+            self.background_color = 1, 1, 1, 1
+            root.manager.current = "main_screen"
+            root.manager.transition.direction = "left"
 
     Button:
         background_normal: 'res/chat.png'
@@ -541,3 +558,7 @@
         source: 'res/logo.png'
         size: self.texture_size
         pos: 0, -420
+
+    Label:
+        text: "Trail Screen"
+        color: 0, 0, 0, 1
