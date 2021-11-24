@@ -1,4 +1,5 @@
-#:kivy 2.0.0
+#:kivy 2.0
+#:import kivy kivy
 <CustButton@Button>
     font_size: 32
     color: 1, 1, 1, 1
@@ -83,7 +84,8 @@
         color: '#707070'
         on_release: print(root.manager.get_screen('login_screen').ids.Email.text, "\n", root.manager.get_screen('login_screen').ids.password.text)
         on_release: 
-            if root.manager.get_screen('login_screen').ids.Email.text == "test@gmail.com" and root.manager.get_screen('login_screen').ids.password.text == "password": root.manager.current = "main_screen"
+            #if root.manager.get_screen('login_screen').ids.Email.text == "test@gmail.com" and root.manager.get_screen('login_screen').ids.password.text == "password":
+            root.manager.current = "main_screen"
             root.manager.transition.direction = "left"
 
     CustButton:
@@ -97,19 +99,114 @@
             root.manager.current = "home_screen"
 
 
-<ScreenThree>:
+
+<MainScreen>:
     canvas.before:
         Color:
-            rgba: (1, 1, 1, 1)
+            rgba: 1, 1, 1, 1
         Rectangle:
             pos: self.pos
             size: self.size
+    Image:
+        source: 'res/Rectangle 1.png'
+        size: self.texture_size
+        pos: 0, 434
+    
+    Button:
+        background_normal: 'res/asset1.png'
+        background_down: 'res/asset1.png'
+        size: 22, 67
+        size_hint: None, None
+        pos: 45, 865
+        on_press: self.background_color = 1, 1, 1, 0.3
+        on_release: self.background_color = 1, 1, 1, 1
+    
+    Button:
+        background_normal: 'res/paw.png'
+        background_down: 'res/paw.png'
+        size: 128, 128
+        size_hint: None, None
+        pos: 91, 833
+        on_press: self.background_color = 1, 1, 1, 0.3
+        on_release: self.background_color = 1, 1, 1, 1
+    
+    Button:
+        background_normal: 'res/home.png'
+        background_down: 'res/home.png'
+        size: 128, 128
+        size_hint: None, None
+        pos: 201, 833
+        on_press: self.background_color = 1, 1, 1, 0.3
+        on_release: self.background_color = 1, 1, 1, 1
 
-        Rectangle:
-            pos: 100, 100
-            size: 400, 400
-            source: 
+    Button:
+        background_normal: 'res/chat.png'
+        background_down: 'res/chat.png'
+        size: 128, 128
+        size_hint: None, None
+        pos: 300, 833
+        on_press: self.background_color = 1, 1, 1, 0.3
+        on_release:
+            self.background_color = 1, 1, 1, 1
+            root.manager.current = "direct_messages"
+            root.manager.transition.direction = "left"
 
+    Image:
+        source: 'res/Rectangle_2.png'
+        size: self.texture_size
+        pos: 0, -100
+
+    Image:
+        source: 'res/logo.png'
+        size: self.texture_size
+        pos: 0, -400
+
+    #first post
+    Image:
+        source: 'res/Rectangle_2.png'
+        pos: 0, 230
+
+    Image:
+        source: 'res/doggo.png'
+        size: self.texture_size
+        pos: -100, 273
+
+    Label:
+        markup: True
+        text: " Max the golden Lab \n is looking for a home.\n He was the runt of his \n litter and unfortunately \n nobody wanted him.\n Message [color=#0000FF]@Mary_73[/color] if \n you are interested.\n "
+        color: 1, 1, 1, 1
+        pos: 100, 265
+
+    Image:
+        source: 'res/line.png'
+        size: self.texture_size
+        pos: 0, 345
+
+    Image:
+        source: 'res/line.png'
+        size: self.texture_size
+        pos: 0, 120
+
+    Label:
+        text: "Mary_73"
+        color: 1, 1, 1, 0.7
+        pos: -145, 355
+
+    Label:
+        text: "0"
+        pos: 147, 107
+
+    ToggleButton:
+        background_normal: 'res/heart_empty.png'
+        background_down: 'res/heart.png'
+        size_hint: None, None
+        size: 44, 44
+        pos: 360, 549
+
+    Label:
+        text: "Posted 11H Ago"
+        pos: -125, 107
+        color: 1, 1, 1, 0.7
 
 <ScreenFour>:
     canvas.before:
@@ -139,11 +236,10 @@
         background_normal: 'res/input.png'
         background_active: 'res/input.png'
         cursor_color: 0, 0, 0, 1
-        password: True
 
     TextInput:
         id: DOB
-        hint_text: "date-of-birth"
+        hint_text: "Date-Of-Birth"
         pos: 114, 360
         size_hint: None, None
         multiline: False
@@ -151,7 +247,7 @@
         background_normal: 'res/input.png'
         background_active: 'res/input.png'
         cursor_color: 0, 0, 0, 1
-        password: True
+
 
     TextInput:
         id: password
@@ -187,17 +283,59 @@
             root.manager.transition.direction = "right"
             root.manager.current = "home_screen"
 
-            
+<DirectMessages>:
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    Image:
+        source: 'res/Rectangle 1.png'
+        size: self.texture_size
+        pos: 0, 434
     
-            
-                
+    Button:
+        background_normal: 'res/asset1.png'
+        background_down: 'res/asset1.png'
+        size: 22, 67
+        size_hint: None, None
+        pos: 45, 865
+        on_press: self.background_color = 1, 1, 1, 0.3
+        on_release: self.background_color = 1, 1, 1, 1
+    
+    Button:
+        background_normal: 'res/paw.png'
+        background_down: 'res/paw.png'
+        size: 128, 128
+        size_hint: None, None
+        pos: 91, 833
+        on_press: self.background_color = 1, 1, 1, 0.3
+        on_release: self.background_color = 1, 1, 1, 1
+    
+    Button:
+        background_normal: 'res/home.png'
+        background_down: 'res/home.png'
+        size: 128, 128
+        size_hint: None, None
+        pos: 201, 833
+        on_press: self.background_color = 1, 1, 1, 0.3
+        on_release:
+            self.background_color = 1, 1, 1, 1
+            root.manager.current = "main_screen"
+            root.manager.transition.direction = "left"
+
+    Button:
+        background_normal: 'res/chat.png'
+        background_down: 'res/chat.png'
+        size: 128, 128
+        size_hint: None, None
+        pos: 300, 833
+        on_press: self.background_color = 1, 1, 1, 0.3
+        on_release: self.background_color = 1, 1, 1, 1
     
 
-
-
-
-
-
-  
-        
-    
+    Image:
+        source: 'res/logo.png'
+        size: self.texture_size
+        pos: 0, -400 
