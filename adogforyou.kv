@@ -339,7 +339,7 @@
         Color:
             rgba: 1, 1, 1, 1
         Rectangle:
-            pos: self.pos
+            pos: 0, 0
             size: self.size
 
     Image:
@@ -408,7 +408,7 @@
         text: "Direct Messages"
         markup: True
         color: 1, 1, 1, 1
-        pos: -20, 350
+        pos: 0, 350
         font_size: self.width/13
 
     Button:
@@ -416,7 +416,7 @@
         background_down: 'res/plus.png'
         size: 40, 40
         size_hint: None, None
-        pos: 40, 350
+        pos: 360, 100
         on_press: self.background_color = 1, 1, 1, 0.3
         on_release: self.background_color = 1, 1, 1, 1
 
@@ -562,3 +562,9 @@
     Label:
         text: "Trail Screen"
         color: 0, 0, 0, 1
+
+    Image:
+        source: 'res/sample_map.png'
+        size_hint: None, None
+        size: 428, 800
+        pos: 0, 0
