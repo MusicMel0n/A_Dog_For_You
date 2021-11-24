@@ -1,2 +1,2 @@
 # A_Dog_For_You
-Epic Dog App For Finding Dog
+🐶 "Prototype" of a cool dog owner app we came up with 🐶
