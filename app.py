@@ -31,6 +31,12 @@ class ScreenFour(Screen):
 class DirectMessages(Screen):
     pass
 
+class QuizScreen(Screen):
+    pass
+
+class TrailScreen(Screen):
+    pass
+
 screen_manager =  ScreenManager()
 
 screen_manager.add_widget(ScreenOne(name='home_screen'))
@@ -38,6 +44,8 @@ screen_manager.add_widget(ScreenTwo(name='login_screen'))
 screen_manager.add_widget(MainScreen(name='main_screen'))
 screen_manager.add_widget(ScreenFour(name='register_screen'))
 screen_manager.add_widget(DirectMessages(name="direct_messages"))
+screen_manager.add_widget(QuizScreen(name='quiz_screen'))
+screen_manager.add_widget(TrailScreen(name="trail_screen"))
 
 
 class adogforyouApp(App):

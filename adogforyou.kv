@@ -119,7 +119,10 @@
         size_hint: None, None
         pos: 45, 865
         on_press: self.background_color = 1, 1, 1, 0.3
-        on_release: self.background_color = 1, 1, 1, 1
+        on_release: 
+            self.background_color = 1, 1, 1, 1
+            root.manager.current = "trail_screen"
+            root.manager.transition.direction = "left"
     
     Button:
         background_normal: 'res/paw.png'
@@ -128,7 +131,11 @@
         size_hint: None, None
         pos: 91, 833
         on_press: self.background_color = 1, 1, 1, 0.3
-        on_release: self.background_color = 1, 1, 1, 1
+        on_release: 
+            self.background_color = 1, 1, 1, 1
+            root.manager.current = "quiz_screen"
+            root.manager.transition.direction = "left"
+
     
     Button:
         background_normal: 'res/home.png'
@@ -152,14 +159,9 @@
             root.manager.transition.direction = "left"
 
     Image:
-        source: 'res/Rectangle_2.png'
-        size: self.texture_size
-        pos: 0, -100
-
-    Image:
         source: 'res/logo.png'
         size: self.texture_size
-        pos: 0, -400
+        pos: 0, -420
 
     #first post
     Image:
@@ -175,7 +177,8 @@
         markup: True
         text: " Max the golden Lab \n is looking for a home.\n He was the runt of his \n litter and unfortunately \n nobody wanted him.\n Message [color=#0000FF]@Mary_73[/color] if \n you are interested.\n "
         color: 1, 1, 1, 1
-        pos: 100, 265
+        pos: 95, 250
+        font_size: self.width/20-3
 
     Image:
         source: 'res/line.png'
@@ -193,7 +196,7 @@
         pos: -145, 355
 
     Label:
-        text: "0"
+        text: "50"
         pos: 147, 107
 
     ToggleButton:
@@ -207,6 +210,55 @@
         text: "Posted 11H Ago"
         pos: -125, 107
         color: 1, 1, 1, 0.7
+
+    #second post
+    Image:
+        source: 'res/Rectangle_2.png'
+        size: self.texture_size
+        pos: 0, -100
+
+    Image:
+        source: 'res/line.png'
+        size: self.texture_size
+        pos: 0, -215
+
+    Image:
+        source: 'res/line.png'
+        size: self.texture_size
+        pos: 0, 10
+
+    Label:
+        text: "Sean_maher8"
+        color: 1, 1, 1, 0.7
+        pos: -130, 23
+
+    ToggleButton:
+        background_normal: 'res/heart_empty.png'
+        background_down: 'res/heart.png'
+        size_hint: None, None
+        size: 44, 44
+        pos: 360, 215
+
+    Label:
+        text: "223"
+        pos: 147, -226
+
+    Label:
+        text: "Posted 15H Ago"
+        pos: -125, -226
+        color: 1, 1, 1, 0.7
+
+    Image:
+        source: 'res/doggo.png'
+        size: self.texture_size
+        pos: 100, -60
+
+    Label:
+        markup: True
+        text: " Max the golden Lab \n is looking for a home.\n He was the runt of his \n litter and unfortunately \n nobody wanted him.\n Message [color=#0000FF]@Mary_73[/color] if \n you are interested.\n "
+        color: 1, 1, 1, 1
+        pos: -95, -85
+        font_size: self.width/20-3
 
 <ScreenFour>:
     canvas.before:
@@ -247,7 +299,6 @@
         background_normal: 'res/input.png'
         background_active: 'res/input.png'
         cursor_color: 0, 0, 0, 1
-
 
     TextInput:
         id: password
@@ -338,4 +389,155 @@
     Image:
         source: 'res/logo.png'
         size: self.texture_size
-        pos: 0, -400 
+        pos: 0, -420 
+
+    Image:
+        source: 'res/Big-rect.png'
+        size: self.texture_size
+        pos: 0.8, 0
+
+    Label:
+        id: direct_messages
+        text: "Direct Messages"
+        markup: True
+        color: 1, 1, 1, 1
+        pos: -20, 350
+        font_size: self.width/13
+
+    Button:
+        background_normal: 'res/plus.png'
+        background_down: 'res/plus.png'
+        size: 40, 40
+        size_hint: None, None
+        pos: 40, 350
+        on_press: self.background_color = 1, 1, 1, 0.3
+        on_release: self.background_color = 1, 1, 1, 1
+
+
+<QuizScreen>:
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    Image:
+        source: 'res/Rectangle 1.png'
+        size: self.texture_size
+        pos: 0, 434
+    
+    Button:
+        background_normal: 'res/asset1.png'
+        background_down: 'res/asset1.png'
+        size: 22, 67
+        size_hint: None, None
+        pos: 45, 865
+        on_press: self.background_color = 1, 1, 1, 0.3
+        on_release: 
+            self.background_color = 1, 1, 1, 1
+            root.manager.current = "trail_screen"
+            root.manager.transition.direction = "left"
+    
+    Button:
+        background_normal: 'res/paw.png'
+        background_down: 'res/paw.png'
+        size: 128, 128
+        size_hint: None, None
+        pos: 91, 833
+        on_press: self.background_color = 1, 1, 1, 0.3
+        on_release: 
+            self.background_color = 1, 1, 1, 1
+            root.manager.current = "quiz_screen"
+            root.manager.transition.direction = "left"
+
+    
+    Button:
+        background_normal: 'res/home.png'
+        background_down: 'res/home.png'
+        size: 128, 128
+        size_hint: None, None
+        pos: 201, 833
+        on_press: self.background_color = 1, 1, 1, 0.3
+        on_release: self.background_color = 1, 1, 1, 1
+
+    Button:
+        background_normal: 'res/chat.png'
+        background_down: 'res/chat.png'
+        size: 128, 128
+        size_hint: None, None
+        pos: 300, 833
+        on_press: self.background_color = 1, 1, 1, 0.3
+        on_release:
+            self.background_color = 1, 1, 1, 1
+            root.manager.current = "direct_messages"
+            root.manager.transition.direction = "left"
+
+    Image:
+        source: 'res/logo.png'
+        size: self.texture_size
+        pos: 0, -420
+
+<TrailScreen>:
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    Image:
+        source: 'res/Rectangle 1.png'
+        size: self.texture_size
+        pos: 0, 434
+    
+    Button:
+        background_normal: 'res/asset1.png'
+        background_down: 'res/asset1.png'
+        size: 22, 67
+        size_hint: None, None
+        pos: 45, 865
+        on_press: self.background_color = 1, 1, 1, 0.3
+        on_release: 
+            self.background_color = 1, 1, 1, 1
+            root.manager.current = "trail_screen"
+            root.manager.transition.direction = "left"
+    
+    Button:
+        background_normal: 'res/paw.png'
+        background_down: 'res/paw.png'
+        size: 128, 128
+        size_hint: None, None
+        pos: 91, 833
+        on_press: self.background_color = 1, 1, 1, 0.3
+        on_release: 
+            self.background_color = 1, 1, 1, 1
+            root.manager.current = "quiz_screen"
+            root.manager.transition.direction = "left"
+
+    
+    Button:
+        background_normal: 'res/home.png'
+        background_down: 'res/home.png'
+        size: 128, 128
+        size_hint: None, None
+        pos: 201, 833
+        on_press: self.background_color = 1, 1, 1, 0.3
+        on_release: self.background_color = 1, 1, 1, 1
+
+    Button:
+        background_normal: 'res/chat.png'
+        background_down: 'res/chat.png'
+        size: 128, 128
+        size_hint: None, None
+        pos: 300, 833
+        on_press: self.background_color = 1, 1, 1, 0.3
+        on_release:
+            self.background_color = 1, 1, 1, 1
+            root.manager.current = "direct_messages"
+            root.manager.transition.direction = "left"
+
+    Image:
+        source: 'res/logo.png'
+        size: self.texture_size
+        pos: 0, -420
