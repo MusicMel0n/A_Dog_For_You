@@ -18,6 +18,10 @@ pip install mapview
 **install python**
 ```
 #Example
+Linux:
 ./install_python.sh 3.6.4
+
+Windows:
+bash install_python.sh 3.6.4
 ```
 
