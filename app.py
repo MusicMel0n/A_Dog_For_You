@@ -1,3 +1,5 @@
+#A dog for you app
+#Made for Microsoft ty event
 import kivy
 kivy.require('2.0.0')
 
@@ -47,6 +49,12 @@ class TrailScreen(Screen):
 class ComposeMessage(Screen):
     pass
 
+class QuizForm(Screen):
+    pass
+
+class QuizResults(Screen):
+    pass
+
 screen_manager =  ScreenManager()
 
 screen_manager.add_widget(ScreenOne(name='home_screen'))
@@ -57,6 +65,8 @@ screen_manager.add_widget(DirectMessages(name="direct_messages"))
 screen_manager.add_widget(QuizScreen(name='quiz_screen'))
 screen_manager.add_widget(TrailScreen(name="trail_screen"))
 screen_manager.add_widget(ComposeMessage(name="compose_message"))
+screen_manager.add_widget(QuizForm(name="quiz_form"))
+screen_manager.add_widget(QuizResults(name="quiz_results"))
 
 
 class adogforyouApp(App):

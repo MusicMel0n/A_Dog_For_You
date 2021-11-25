@@ -45,8 +45,6 @@
             root.manager.transition.direction = "left"
             root.manager.current = "register_screen"
 
-
-
 <ScreenTwo>:
     canvas.before:
         Rectangle:
@@ -84,7 +82,7 @@
 
     CustButton:
         text: "Login"
-        pos: 139, 300
+        pos: 139, 200
         size_hint: None, None
         size: 150, 50
         color: '#707070'
@@ -93,18 +91,6 @@
             #if root.manager.get_screen('login_screen').ids.Email.text == "test@gmail.com" and root.manager.get_screen('login_screen').ids.password.text == "password":
             root.manager.current = "main_screen"
             root.manager.transition.direction = "left"
-
-    CustButton:
-        text: "Back"
-        pos: 139, 220
-        size: 150,50
-        color: '#707070'
-        size_hint: None, None
-        on_release: 
-            root.manager.transition.direction = "right"
-            root.manager.current = "home_screen"
-
-
 
 <MainScreen>:
     canvas.before:
@@ -735,6 +721,266 @@
         source: 'res/logo.png'
         size: self.texture_size
         pos: 0, -420
+
+    Image:
+        source: 'res/backdrop.png'
+        size: self.texture_size
+        pos: 0, -28
+
+    Button:
+        background_normal: 'res/Rectangle 3.png'
+        background_down: 'res/Rectangle 3.png'
+        size: 238, 74
+        size_hint: None, None
+        pos: 100, 400
+        on_press: self.background_color = 1, 1, 1, 0.3
+        on_release:
+            self.background_color = 1, 1, 1, 1
+            root.manager.current = "quiz_form"
+            root.manager.transition.direction = "left"
+
+    Label:
+        text: "Take test today"
+        font_size: self.width/13
+        pos: 3, -25
+
+<QuizForm>:
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    Image:
+        source: 'res/Rectangle 1.png'
+        size: self.texture_size
+        pos: 0, 434
+    
+    Button:
+        background_normal: 'res/asset1.png'
+        background_down: 'res/asset1.png'
+        size: 22, 67
+        background_color: 1, 1, 1, 0.3
+        size_hint: None, None
+        pos: 45, 865
+    
+    Button:
+        background_normal: 'res/paw.png'
+        background_down: 'res/paw.png'
+        size: 128, 128
+        size_hint: None, None
+        pos: 91, 833
+        on_press: self.background_color = 1, 1, 1, 0.3
+        on_release: 
+            self.background_color = 1, 1, 1, 1
+            root.manager.current = "trail_screen"
+            root.manager.transition.direction = "left"
+
+    
+    Button:
+        background_normal: 'res/home.png'
+        background_down: 'res/home.png'
+        size: 128, 128
+        size_hint: None, None
+        pos: 201, 833
+        on_press: self.background_color = 1, 1, 1, 0.3
+        on_release:
+            self.background_color = 1, 1, 1, 1
+            root.manager.current = "main_screen"
+            root.manager.transition.direction = "left"
+
+    Button:
+        background_normal: 'res/chat.png'
+        background_down: 'res/chat.png'
+        size: 128, 128
+        size_hint: None, None
+        pos: 300, 833
+        on_press: self.background_color = 1, 1, 1, 0.3
+        on_release:
+            self.background_color = 1, 1, 1, 1
+            root.manager.current = "direct_messages"
+            root.manager.transition.direction = "left"
+
+    Image:
+        source: 'res/logo.png'
+        size: self.texture_size
+        pos: 0, -420
+
+    Image:
+        source: 'res/form.png'
+        size: self.texture_size
+        pos: 0, -28
+
+    Button:
+        background_normal: 'res/Rectangle 3.png'
+        background_down: 'res/Rectangle 3.png'
+        size: 238, 74
+        size_hint: None, None
+        pos: 100, 120
+        on_press: self.background_color = 1, 1, 1, 0.3
+        on_release:
+            self.background_color = 1, 1, 1, 1
+            root.manager.current = "quiz_results"
+            root.manager.transition.direction = "left"
+
+    Label:
+        text: "Submit"
+        font_size: self.width/13
+        pos: 5, -305
+
+
+    #first box
+    TextInput:
+        background_active: ""
+        background_normal: ""
+        cursor_color: 0, 0, 0, 1
+        size_hint: None, None
+        multiline: False
+        halign: "center"
+        size: 240, 30
+        pos: 90, 674
+
+    #second box
+    TextInput:
+        background_active: ""
+        background_normal: ""
+        cursor_color: 0, 0, 0, 1
+        size_hint: None, None
+        multiline: False
+        halign: "center"
+        size: 240, 30
+        pos: 90, 585
+
+    #third box
+    TextInput:
+        background_active: ""
+        background_normal: ""
+        cursor_color: 0, 0, 0, 1
+        size_hint: None, None
+        multiline: False
+        halign: "center"
+        size: 240, 30
+        pos: 90, 496
+
+    #forth box
+    TextInput:
+        background_active: ""
+        background_normal: ""
+        cursor_color: 0, 0, 0, 1
+        size_hint: None, None
+        multiline: False
+        halign: "center"
+        size: 240, 30
+        pos: 90, 407
+
+    #fifth box
+    TextInput:
+        background_active: ""
+        background_normal: ""
+        cursor_color: 0, 0, 0, 1
+        size_hint: None, None
+        multiline: False
+        halign: "center"
+        size: 240, 30
+        pos: 90, 318
+
+    #sixth box
+    TextInput:
+        background_active: ""
+        background_normal: ""
+        cursor_color: 0, 0, 0, 1
+        size_hint: None, None
+        multiline: False
+        halign: "center"
+        size: 240, 30
+        pos: 90, 229
+
+
+<QuizResults>:
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    Image:
+        source: 'res/Rectangle 1.png'
+        size: self.texture_size
+        pos: 0, 434
+    
+    Button:
+        background_normal: 'res/asset1.png'
+        background_down: 'res/asset1.png'
+        size: 22, 67
+        background_color: 1, 1, 1, 0.3
+        size_hint: None, None
+        pos: 45, 865
+    
+    Button:
+        background_normal: 'res/paw.png'
+        background_down: 'res/paw.png'
+        size: 128, 128
+        size_hint: None, None
+        pos: 91, 833
+        on_press: self.background_color = 1, 1, 1, 0.3
+        on_release: 
+            self.background_color = 1, 1, 1, 1
+            root.manager.current = "trail_screen"
+            root.manager.transition.direction = "left"
+
+    
+    Button:
+        background_normal: 'res/home.png'
+        background_down: 'res/home.png'
+        size: 128, 128
+        size_hint: None, None
+        pos: 201, 833
+        on_press: self.background_color = 1, 1, 1, 0.3
+        on_release:
+            self.background_color = 1, 1, 1, 1
+            root.manager.current = "main_screen"
+            root.manager.transition.direction = "left"
+
+    Button:
+        background_normal: 'res/chat.png'
+        background_down: 'res/chat.png'
+        size: 128, 128
+        size_hint: None, None
+        pos: 300, 833
+        on_press: self.background_color = 1, 1, 1, 0.3
+        on_release:
+            self.background_color = 1, 1, 1, 1
+            root.manager.current = "direct_messages"
+            root.manager.transition.direction = "left"
+
+    Image:
+        source: 'res/logo.png'
+        size: self.texture_size
+        pos: 0, -420
+
+    Image:
+        source: 'res/results.png'
+        size: self.texture_size
+        pos: 0, -28
+
+    Button:
+        background_normal: 'res/Rectangle 3.png'
+        background_down: 'res/Rectangle 3.png'
+        size: 238, 74
+        size_hint: None, None
+        pos: 100, 110
+        on_press: self.background_color = 1, 1, 1, 0.3
+        on_release:
+            self.background_color = 1, 1, 1, 1
+            root.manager.current = "main_screen"
+            root.manager.transition.direction = "left"
+
+    Label:
+        text: "Close"
+        font_size: self.width/13
+        pos: 5, -315
     
 
 <TrailScreen>:
