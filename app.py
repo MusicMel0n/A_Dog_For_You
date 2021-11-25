@@ -10,11 +10,17 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.textinput import TextInput
 from kivy.config import Config
 from kivy.uix.scrollview import ScrollView
+from kivy.config import Config
+Config.set('graphics', 'resizable', False)
 
+WIN_WIDTH, WIN_HEIGHT = 428, 926
 
 Builder.load_file('adogforyou.kv')
 
-Window.size = (428, 926)
+fixedSize = (WIN_WIDTH, WIN_HEIGHT)
+Window.size = (WIN_WIDTH, WIN_HEIGHT)
+Window.top = 100
+Window.left = 740
 
 class ScreenOne(Screen):
     pass
@@ -53,6 +59,11 @@ class adogforyouApp(App):
     b = str(a)
     def build(self):
         return screen_manager
+
+    def reSize(*args):
+        Window.size = fixedSize
+        return True
+    Window.bind(on_resize = reSize)
 
 app = adogforyouApp()
 
