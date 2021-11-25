@@ -15,9 +15,3 @@ pip install kivy
 pip install mapview
 ```
 
-**install python:**
-```
-#Example
-./install_python.sh 3.6.4
-```
-
