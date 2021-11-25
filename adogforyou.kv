@@ -528,7 +528,7 @@
         font_size: 21
 
 
-<ComposeMessage>
+<ComposeMessage>:
     canvas.before:
         Color:
             rgba: 1, 1, 1, 1
@@ -590,157 +590,49 @@
         pos: 0, -420 
 
     Image:
-        source: 'res/Big-rect.png'
-        size: self.texture_size
-        pos: 0.8, 0
-
-    Label:
-        id: direct_messages
-        text: "Direct Messages"
-        markup: True
-        color: 1, 1, 1, 1
-        pos: 0, 350
-        font_size: self.width/13
-
-    Button:
-        background_normal: 'res/plus.png'
-        background_down: 'res/plus.png'
-        size: 40, 40
-        size_hint: None, None
-        pos: 360, 790
-        on_press: self.background_color = 1, 1, 1, 0.3
-        on_release: self.background_color = 1, 1, 1, 1
-
-    #white_background
-    Image:
-        source: 'res/white_back.png'
-        size: self.texture_size
-        size_hint: None, None
-        pos: 45, 650
-    
-    Image:
-        source: 'res/white_back.png'
-        size: self.texture_size
-        size_hint: None, None
-        pos: 45, 500
-    
-    Image:
-        source: 'res/white_back.png'
-        size: self.texture_size
-        size_hint: None, None
-        pos: 45, 350
-
-    Image:
-        source: 'res/white_back.png'
-        size: self.texture_size
-        size_hint: None, None
-        pos: 45, 200
-
-    #david
-    Image:
-        source: 'res/david.png'
-        size: self.texture_size
-        size_hint: None, None
-        pos: 55, 665
-    
-    Image:
-        source: 'res/david.png'
-        size: self.texture_size
-        size_hint: None, None
-        pos: 55, 515
-
-    Image:
-        source: 'res/david.png'
-        size: self.texture_size
-        size_hint: None, None
-        pos: 55, 365
-
-    Image:
-        source: 'res/david.png'
-        size: self.texture_size
-        size_hint: None, None
-        pos: 55, 215
-    
-    #bloo
-    Image:
-        source: 'res/bloo.png'
-        size: self.texture_size
-        size_hint: None, None
-        pos: 150, 665
-
-    Image:
-        source: 'res/bloo.png'
-        size: self.texture_size
-        size_hint: None, None
-        pos: 150, 515
-
-    Image:
-        source: 'res/bloo.png'
-        size: self.texture_size
-        size_hint: None, None
-        pos: 150, 365
-
-    Image:
-        source: 'res/bloo.png'
-        size: self.texture_size
-        size_hint: None, None
-        pos: 150, 215
-
-    #poor davids messages
-    Label:
-        text: " Hi, are you still \n interested in adopti.. "
-        color: 1, 1, 1, 1
-        pos: 40, 240
-        font_size: 21
-
-    Label:
-        text: " Hey, I really enjoyed \n that trail you rec.."
-        color: 1, 1, 1, 1
-        pos: 40, 90
-        font_size: 21
-
-    Label:
-        text: " Thanks for liking my \n post "
-        color: 1, 1, 1, 1
-        pos: 40, -60
-        font_size: 21
-
-    Label:
-        text: " Hi, nice to meet you "
-        color: 1, 1, 1, 1
-        pos: 40, -210
-        font_size: 21
-
-    Image:
         source: 'res/message_rectangle.png'
         size: self.texture_size
         size_hint: None, None
-        pos: 40, 222
+        pos: 29, 222
     
     Label:
         text: "Send a message"
         font_size: 27
         color: 1, 1, 1, 1
         pos: 0, 250
+
+    Image:
+        source: 'res/user_input.png'
+        size: 310, 50
+        size_hint: None, None
+        pos: 57.5, 580
+
     
     TextInput:
-        background_active: "res/user_input.png"
-        background_normal: "res/user_input.png"
+        background_active: ""
+        background_normal: ""
         cursor_color: 0, 0, 0, 1
         size_hint: None, None
         multiline: False
         halign: "center"
-        size: 264, 36
-        pos: 82, 590
+        size: 240, 30
+        pos: 90, 590
+
+    Image:
+        source: 'res/Rectangle_5.png'
+        size: 310, 800
+        size_hint: None, None
+        pos: 57.5, -5
+
 
     TextInput:
-        background_active: "res/message_input.png"
-        background_normal: "res/message_input.png"
+        background_active: ""
+        background_normal: ""
         cursor_color: 0, 0, 0, 1
         size_hint: None, None
         multiline: True
-        size: 264, 219
-        pos: 82, 290
+        size: 240, 210
+        pos: 90, 290
 
     Button:
         background_normal: 'res/send_button.png'
@@ -843,10 +735,6 @@
         source: 'res/logo.png'
         size: self.texture_size
         pos: 0, -420
-
-    Label:
-        text: "Quiz Screen"
-        color: 0, 0, 0, 1
     
 
 <TrailScreen>:
