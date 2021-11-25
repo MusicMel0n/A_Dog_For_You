@@ -6,11 +6,12 @@ from kivy.uix.button import Label
 from kivy.uix.widget import Widget
 from kivy.core.window import Window
 from kivy.lang import Builder
-from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition, NoTransition
 from kivy.uix.textinput import TextInput
 from kivy.config import Config
 from kivy.uix.scrollview import ScrollView
 from kivy.config import Config
+
 Config.set('graphics', 'resizable', False)
 
 WIN_WIDTH, WIN_HEIGHT = 428, 926
@@ -43,6 +44,9 @@ class QuizScreen(Screen):
 class TrailScreen(Screen):
     pass
 
+class ComposeMessage(Screen):
+    pass
+
 screen_manager =  ScreenManager()
 
 screen_manager.add_widget(ScreenOne(name='home_screen'))
@@ -52,6 +56,7 @@ screen_manager.add_widget(ScreenFour(name='register_screen'))
 screen_manager.add_widget(DirectMessages(name="direct_messages"))
 screen_manager.add_widget(QuizScreen(name='quiz_screen'))
 screen_manager.add_widget(TrailScreen(name="trail_screen"))
+screen_manager.add_widget(ComposeMessage(name="compose_message"))
 
 
 class adogforyouApp(App):

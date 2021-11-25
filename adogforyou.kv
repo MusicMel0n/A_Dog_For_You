@@ -1,5 +1,10 @@
 #:kivy 2.0
 #:import kivy kivy
+#:import MapView kivy_garden.mapview.MapView
+#:import Factory kivy.factory.Factory
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+#:import NoTransition kivy.uix.screenmanager.NoTransition
+#:import SlideTransition kivy.uix.screenmanager.SlideTransition
 <CustButton@Button>
     font_size: 32
     color: 1, 1, 1, 1
@@ -9,6 +14,7 @@
     background_color: 1, 1, 1, 1
     on_press: self.background_color = 1, 1, 1, 0.3
     on_release: self.background_color = 1, 1, 1, 1
+
 
 <ScreenOne>:
     canvas.before:
@@ -140,11 +146,10 @@
     Button:
         background_normal: 'res/home.png'
         background_down: 'res/home.png'
+        background_color: 1, 1, 1, 0.3
         size: 128, 128
         size_hint: None, None
         pos: 201, 833
-        on_press: self.background_color = 1, 1, 1, 0.3
-        on_release: self.background_color = 1, 1, 1, 1
 
     Button:
         background_normal: 'res/chat.png'
@@ -354,7 +359,9 @@
         size_hint: None, None
         pos: 45, 865
         on_press: self.background_color = 1, 1, 1, 0.3
-        on_release: self.background_color = 1, 1, 1, 1
+        on_release:
+            self.background_color = 1, 1, 1, 1
+            root.manager.current = "quiz_screen"
     
     Button:
         background_normal: 'res/paw.png'
@@ -383,15 +390,10 @@
     Button:
         background_normal: 'res/chat.png'
         background_down: 'res/chat.png'
+        background_color: 1, 1, 1, 0.3
         size: 128, 128
         size_hint: None, None
         pos: 300, 833
-        on_press: self.background_color = 1, 1, 1, 0.3
-        on_release:
-            self.background_color = 1, 1, 1, 1
-            root.manager.current = "direct_messages"
-            root.manager.transition.direction = "left"
-    
 
     Image:
         source: 'res/logo.png'
@@ -416,9 +418,367 @@
         background_down: 'res/plus.png'
         size: 40, 40
         size_hint: None, None
-        pos: 360, 100
+        pos: 360, 790
+        on_press: self.background_color = 1, 1, 1, 0.3
+        on_release:
+            self.background_color = 1, 1, 1, 1
+            root.manager.transition = NoTransition()
+            root.manager.current = "compose_message"
+            root.manager.transition = SlideTransition()
+            
+
+    #white_background
+    Image:
+        source: 'res/white_back.png'
+        size: self.texture_size
+        size_hint: None, None
+        pos: 45, 650
+    
+    Image:
+        source: 'res/white_back.png'
+        size: self.texture_size
+        size_hint: None, None
+        pos: 45, 500
+    
+    Image:
+        source: 'res/white_back.png'
+        size: self.texture_size
+        size_hint: None, None
+        pos: 45, 350
+
+    Image:
+        source: 'res/white_back.png'
+        size: self.texture_size
+        size_hint: None, None
+        pos: 45, 200
+
+    #david
+    Image:
+        source: 'res/david.png'
+        size: self.texture_size
+        size_hint: None, None
+        pos: 55, 665
+    
+    Image:
+        source: 'res/david.png'
+        size: self.texture_size
+        size_hint: None, None
+        pos: 55, 515
+
+    Image:
+        source: 'res/david.png'
+        size: self.texture_size
+        size_hint: None, None
+        pos: 55, 365
+
+    Image:
+        source: 'res/david.png'
+        size: self.texture_size
+        size_hint: None, None
+        pos: 55, 215
+    
+    #bloo
+    Image:
+        source: 'res/bloo.png'
+        size: self.texture_size
+        size_hint: None, None
+        pos: 150, 665
+
+    Image:
+        source: 'res/bloo.png'
+        size: self.texture_size
+        size_hint: None, None
+        pos: 150, 515
+
+    Image:
+        source: 'res/bloo.png'
+        size: self.texture_size
+        size_hint: None, None
+        pos: 150, 365
+
+    Image:
+        source: 'res/bloo.png'
+        size: self.texture_size
+        size_hint: None, None
+        pos: 150, 215
+
+    #poor davids messages
+    Label:
+        text: " Hi, are you still \n interested in adopti.. "
+        color: 1, 1, 1, 1
+        pos: 40, 240
+        font_size: 21
+
+    Label:
+        text: " Hey, I really enjoyed \n that trail you rec.."
+        color: 1, 1, 1, 1
+        pos: 40, 90
+        font_size: 21
+
+    Label:
+        text: " Thanks for liking my \n post "
+        color: 1, 1, 1, 1
+        pos: 40, -60
+        font_size: 21
+
+    Label:
+        text: " Hi, nice to meet you "
+        color: 1, 1, 1, 1
+        pos: 40, -210
+        font_size: 21
+
+
+<ComposeMessage>
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            pos: 0, 0
+            size: self.size
+
+    Image:
+        source: 'res/Rectangle 1.png'
+        size: self.texture_size
+        pos: 0, 434
+    
+    Button:
+        background_normal: 'res/asset1.png'
+        background_down: 'res/asset1.png'
+        size: 22, 67
+        size_hint: None, None
+        pos: 45, 865
+        on_press: self.background_color = 1, 1, 1, 0.3
+        on_release:
+            self.background_color = 1, 1, 1, 1
+            root.manager.current = "quiz_screen"
+    
+    Button:
+        background_normal: 'res/paw.png'
+        background_down: 'res/paw.png'
+        size: 128, 128
+        size_hint: None, None
+        pos: 91, 833
+        on_press: self.background_color = 1, 1, 1, 0.3
+        on_release:
+            self.background_color = 1, 1, 1, 1
+            root.manager.current = "trail_screen"
+            root.manager.transition.direction = "left"
+    
+    Button:
+        background_normal: 'res/home.png'
+        background_down: 'res/home.png'
+        size: 128, 128
+        size_hint: None, None
+        pos: 201, 833
+        on_press: self.background_color = 1, 1, 1, 0.3
+        on_release:
+            self.background_color = 1, 1, 1, 1
+            root.manager.current = "main_screen"
+            root.manager.transition.direction = "left"
+
+    Button:
+        background_normal: 'res/chat.png'
+        background_down: 'res/chat.png'
+        background_color: 1, 1, 1, 0.3
+        size: 128, 128
+        size_hint: None, None
+        pos: 300, 833
+
+    Image:
+        source: 'res/logo.png'
+        size: self.texture_size
+        pos: 0, -420 
+
+    Image:
+        source: 'res/Big-rect.png'
+        size: self.texture_size
+        pos: 0.8, 0
+
+    Label:
+        id: direct_messages
+        text: "Direct Messages"
+        markup: True
+        color: 1, 1, 1, 1
+        pos: 0, 350
+        font_size: self.width/13
+
+    Button:
+        background_normal: 'res/plus.png'
+        background_down: 'res/plus.png'
+        size: 40, 40
+        size_hint: None, None
+        pos: 360, 790
         on_press: self.background_color = 1, 1, 1, 0.3
         on_release: self.background_color = 1, 1, 1, 1
+
+    #white_background
+    Image:
+        source: 'res/white_back.png'
+        size: self.texture_size
+        size_hint: None, None
+        pos: 45, 650
+    
+    Image:
+        source: 'res/white_back.png'
+        size: self.texture_size
+        size_hint: None, None
+        pos: 45, 500
+    
+    Image:
+        source: 'res/white_back.png'
+        size: self.texture_size
+        size_hint: None, None
+        pos: 45, 350
+
+    Image:
+        source: 'res/white_back.png'
+        size: self.texture_size
+        size_hint: None, None
+        pos: 45, 200
+
+    #david
+    Image:
+        source: 'res/david.png'
+        size: self.texture_size
+        size_hint: None, None
+        pos: 55, 665
+    
+    Image:
+        source: 'res/david.png'
+        size: self.texture_size
+        size_hint: None, None
+        pos: 55, 515
+
+    Image:
+        source: 'res/david.png'
+        size: self.texture_size
+        size_hint: None, None
+        pos: 55, 365
+
+    Image:
+        source: 'res/david.png'
+        size: self.texture_size
+        size_hint: None, None
+        pos: 55, 215
+    
+    #bloo
+    Image:
+        source: 'res/bloo.png'
+        size: self.texture_size
+        size_hint: None, None
+        pos: 150, 665
+
+    Image:
+        source: 'res/bloo.png'
+        size: self.texture_size
+        size_hint: None, None
+        pos: 150, 515
+
+    Image:
+        source: 'res/bloo.png'
+        size: self.texture_size
+        size_hint: None, None
+        pos: 150, 365
+
+    Image:
+        source: 'res/bloo.png'
+        size: self.texture_size
+        size_hint: None, None
+        pos: 150, 215
+
+    #poor davids messages
+    Label:
+        text: " Hi, are you still \n interested in adopti.. "
+        color: 1, 1, 1, 1
+        pos: 40, 240
+        font_size: 21
+
+    Label:
+        text: " Hey, I really enjoyed \n that trail you rec.."
+        color: 1, 1, 1, 1
+        pos: 40, 90
+        font_size: 21
+
+    Label:
+        text: " Thanks for liking my \n post "
+        color: 1, 1, 1, 1
+        pos: 40, -60
+        font_size: 21
+
+    Label:
+        text: " Hi, nice to meet you "
+        color: 1, 1, 1, 1
+        pos: 40, -210
+        font_size: 21
+
+    Image:
+        source: 'res/message_rectangle.png'
+        size: self.texture_size
+        size_hint: None, None
+        pos: 40, 222
+    
+    Label:
+        text: "Send a message"
+        font_size: 27
+        color: 1, 1, 1, 1
+        pos: 0, 250
+    
+    TextInput:
+        background_active: "res/user_input.png"
+        background_normal: "res/user_input.png"
+        cursor_color: 0, 0, 0, 1
+        size_hint: None, None
+        multiline: False
+        halign: "center"
+        size: 264, 36
+        pos: 82, 590
+
+    TextInput:
+        background_active: "res/message_input.png"
+        background_normal: "res/message_input.png"
+        cursor_color: 0, 0, 0, 1
+        size_hint: None, None
+        multiline: True
+        size: 264, 219
+        pos: 82, 290
+
+    Button:
+        background_normal: 'res/send_button.png'
+        background_down: 'res/send_button.png'
+        text: "send"
+        font_size: 18
+        background_color: 1, 1, 1, 1
+        size: 65, 25
+        size_hint: None, None
+        pos: 275, 295
+        on_press: self.background_color = 1, 1, 1, 0.3
+        on_release: self.background_color = 1, 1, 1, 1
+
+    Label:
+        text: "User"
+        font_size: 21
+        pos: 0, 172
+    
+    Label:
+        text: "Message"
+        font_size: 21
+        pos: 0, 65
+
+    Button:
+        background_normal: 'res/close.png'
+        background_down: 'res/close.png'
+        text: "Close"
+        font_size: 25
+        background_color: 1, 1, 1, 1
+        size: 198, 37
+        size_hint: None, None
+        pos: 117, 240
+        on_press: self.background_color = 1, 1, 1, 0.3
+        on_release:
+            self.background_color = 1, 1, 1, 1
+            root.manager.transition = NoTransition()
+            root.manager.current = "direct_messages"
+            root.manager.transition = SlideTransition()
 
 
 <QuizScreen>:
@@ -438,13 +798,9 @@
         background_normal: 'res/asset1.png'
         background_down: 'res/asset1.png'
         size: 22, 67
+        background_color: 1, 1, 1, 0.3
         size_hint: None, None
         pos: 45, 865
-        on_press: self.background_color = 1, 1, 1, 0.3
-        on_release: 
-            self.background_color = 1, 1, 1, 1
-            root.manager.current = "quiz_screen"
-            root.manager.transition.direction = "left"
     
     Button:
         background_normal: 'res/paw.png'
@@ -491,6 +847,7 @@
     Label:
         text: "Quiz Screen"
         color: 0, 0, 0, 1
+    
 
 <TrailScreen>:
     canvas.before:
@@ -521,14 +878,9 @@
         background_normal: 'res/paw.png'
         background_down: 'res/paw.png'
         size: 128, 128
+        background_color: 1, 1, 1, 0.3
         size_hint: None, None
         pos: 91, 833
-        on_press: self.background_color = 1, 1, 1, 0.3
-        on_release: 
-            self.background_color = 1, 1, 1, 1
-            root.manager.current = "trail_screen"
-            root.manager.transition.direction = "left"
-
     
     Button:
         background_normal: 'res/home.png'
@@ -559,12 +911,46 @@
         size: self.texture_size
         pos: 0, -420
 
-    Label:
-        text: "Trail Screen"
-        color: 0, 0, 0, 1
-
-    Image:
-        source: 'res/sample_map.png'
+    MapView:
+        size: 428, 867
         size_hint: None, None
-        size: 428, 800
         pos: 0, 0
+        lat: 52.9984575
+        lon: -7.3980337750324185
+        zoom: 10
+        MapMarkerPopup:
+            source: 'res/map_marker.png'
+            size: 50, 50
+            size_hint: None, None
+            lat: 53.01153002312709
+            lon: -7.325563430786134
+            Button:
+                text: "Togher Woods"
+                color: 1, 1, 1, 1
+                background_normal: ""
+                background_down: ""
+                background_color: "#89ABE3"
+        MapMarkerPopup:
+            source: 'res/map_marker.png'
+            size: 50, 50
+            size_hint: None, None
+            lat: 52.89177075
+            lon: -7.3520290166480695
+            Button:
+                text: "Abbeyleix Bog"
+                color: 1, 1, 1, 1
+                background_normal: ""
+                background_down: ""
+                background_color: "#89ABE3"
+        MapMarkerPopup:
+            source: 'res/map_marker.png'
+            size: 50, 50
+            size_hint: None, None
+            lat: 53.078513650000005
+            lon: -7.70185689872328
+            Button:
+                text: "Kinnity Forest"
+                color: 1, 1, 1, 1
+                background_normal: ""
+                background_down: ""
+                background_color: "#89ABE3"
