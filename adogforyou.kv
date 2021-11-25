@@ -75,14 +75,9 @@
         cursor_color: 0, 0, 0, 1
         password: True 
 
-    Label:
-        id: wrong
-        text: ""
-        color: '#FF0000'
-
     CustButton:
         text: "Login"
-        pos: 139, 200
+        pos: 139, 330
         size_hint: None, None
         size: 150, 50
         color: '#707070'
@@ -735,9 +730,10 @@
         pos: 100, 400
         on_press: self.background_color = 1, 1, 1, 0.3
         on_release:
+            root.manager.transition = NoTransition()
             self.background_color = 1, 1, 1, 1
             root.manager.current = "quiz_form"
-            root.manager.transition.direction = "left"
+            root.manager.transition = SlideTransition()
 
     Label:
         text: "Take test today"
@@ -820,9 +816,10 @@
         pos: 100, 120
         on_press: self.background_color = 1, 1, 1, 0.3
         on_release:
+            root.manager.transition = NoTransition()
             self.background_color = 1, 1, 1, 1
             root.manager.current = "quiz_results"
-            root.manager.transition.direction = "left"
+            root.manager.transition = SlideTransition()
 
     Label:
         text: "Submit"
