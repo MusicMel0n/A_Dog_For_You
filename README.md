@@ -5,12 +5,12 @@ Please Note: This is just to show how our app idea would work. IT IS NOT A FULLY
 
 Requirements:
 
-kivy:
+**kivy:**
 ```
 pip install kivy
 ```
 
-mapview:
+**mapview:**
 ```
 pip install mapview
 ```
