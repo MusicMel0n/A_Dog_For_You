@@ -1,3 +1,5 @@
+#Code written by MusicMel0n and FrogDog56 please don't copy without giving us credit
+
 import kivy
 kivy.require('2.0.0')
 
