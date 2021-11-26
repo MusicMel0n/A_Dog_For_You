@@ -5,6 +5,8 @@ Please Note: This is just to show how our app idea would work. IT IS NOT A FULLY
 
 Requirements:
 
+**Python 3**
+
 **kivy:**
 ```
 pip install kivy
